@@ -7,7 +7,7 @@ export const api = axios.create({
 
 // Add new to the database
 export async function addRoom(photo, roomType, roomPrice) {
-    const formData = new formData()
+    const formData = new FormData()
     formData.append("photo", photo)
     formData.append("roomType", roomType)
     formData.append("roomPrice", roomPrice)
@@ -23,7 +23,8 @@ export async function addRoom(photo, roomType, roomPrice) {
 // Get all the room types from the database
 export async function getRoomTypes() {
     try {
-        const response = await api.get("/rooms/room-types")
+        const response = await api.get("/rooms/room/types")
+        // console.log(response.data)
         return response.data
     }
     catch (error) {
